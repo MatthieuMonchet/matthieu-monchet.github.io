@@ -32,14 +32,14 @@ def home():
     mc = MarkerCluster()
     for index, row in df_parkings.iterrows():
         mc.add_child(folium.Marker(location=[row['fields.geometry.coordinates'][1],row['fields.geometry.coordinates'][0]],
-                              tooltip=row["fields.libelle"],
-                              icon=folium.Icon(color=colors(row["fields.dispo"],row["fields.max"]),
-                              icon="info-sign")))
+                                   tooltip=row["fields.libelle"],
+                                   icon=folium.Icon(color=colors(row["fields.dispo"],row["fields.max"]),
+                                   icon="info-sign")))
         folium.Circle(location=[row['fields.geometry.coordinates'][1],row['fields.geometry.coordinates'][0]],
-                 color=colors(row["fields.dispo"],row["fields.max"]),
-                 fill=True,
-                 fill_color=colors(row["fields.dispo"],row["fields.max"]),
-                 radius=row["fields.max"]/30).add_to(map)
+                      color=colors(row["fields.dispo"],row["fields.max"]),
+                      fill=True,
+                      fill_color=colors(row["fields.dispo"],row["fields.max"]),
+                      radius=row["fields.max"]/30).add_to(map)
         map.add_child(mc)
 
 
