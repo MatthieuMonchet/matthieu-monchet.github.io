@@ -24,11 +24,11 @@ df_velos = pd.json_normalize(r_velos.json())
 def colors(x,y):
   if x/y > 0.2:
     return "green"
-  if x/y < 0.2 and x/y > 0.1:
+  if x/y <= 0.2 and x/y > 0.1:
     return "orange"
-  if x/y < 0.1 :
+  if x/y <= 0.1 and x > 5:
     return "red"
-  if x <= 5 :
+  else:
     return "black"
 
 # création des couleurs pour les vélos
